@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #111;
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove setas do input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ================================
+   VARIÁVEIS GLOBAIS
+================================= */
+
+:root {
+  /* Cores principais */
+  --color-primary: #8257e5;
+  --color-secondary: #04d361;
+
+  /* Tons de cinza */
+  --gray-100: #f2f2f2;
+  --gray-200: #e3e3e3;
+  --gray-300: #cfcfcf;
+  --gray-700: #333;
+  --gray-900: #111;
+
+  /* Espaçamentos */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Tipografia */
+  --font-size-sm: 0.85rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-xxl: 2.5rem;
+}
+
+/* Tema Dark opcional */
+[data-theme="dark"] {
+  --color-primary: #9d7bff;
+  --color-secondary: #4be08b;
+
+  --gray-100: #1e1e1e;
+  --gray-200: #2a2a2a;
+  --gray-300: #3a3a3a;
+  --gray-700: #dcdcdc;
+  --gray-900: #f5f5f5;
+
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* ================================
+   MIXINS
+================================= */
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+@mixin hover {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+/* ================================
+   BREAKPOINTS
+================================= */
+
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+/* ================================
+   CLASSES UTILITÁRIAS
+================================= */
+
+.container {
+  @include container;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
