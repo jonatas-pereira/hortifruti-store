@@ -1,0 +1,158 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnContainer {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    display: none;
+
+    :hover {
+      color: red;
+    }
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: auto;
+    top: -40px;
+    right: 0;
+    gap: 5px;
+  }
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: #7ea010;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 100%;
+}
+
+.slider {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.produtoElement {
+  position: relative;
+  min-width: calc(100% - 10px);
+  height: 300px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background: #eee;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 368px) {
+    min-width: calc(50% - 10px);
+  }
+
+  @media (min-width: 600px) {
+    min-width: calc(33.333% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+
+  @media (min-width: 768px) {
+    min-width: calc(25% - 20px);
+  }
+
+  @media (min-width: 1024px) {
+    min-width: calc(20% - 20px);
+  }
+
+  @media (min-width: 1024px) {
+    min-width: calc(20% - 20px);
+  }
+
+  @media (min-width: 1440px) {
+    min-width: 200px;
+  }
+}
+
+.favoritar {
+  position: absolute;
+  z-index: 20;
+  padding: 15px;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+}
+
+.favoritar { 
+  svg {
+    color: white;
+  }
+
+  svg:hover {
+    color: red;
+  }
+}
+
+.produtoElement img {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.produtoNome {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  padding: 10px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  :last-child {
+    font-weight: 700;
+  }
+}
+
+.seeProduct {
+  display: flex;
+  justify-content: center;
+  color: #eee;
+  width: 90%;
+  bottom: 10px;
+  padding: 10px;
+  background: #7ea010;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 30;
+  cursor: pointer;
+}
