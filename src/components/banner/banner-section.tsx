@@ -15,6 +15,7 @@ export default function BannerSection(
   { photos } : BannerSectionProps
 ) {
   const [imgIndex, setImgIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,8 +28,13 @@ export default function BannerSection(
 
   return (
     <div className={styles.imgBox}>
-      <Image src={photos.mobile[imgIndex]} alt={""} className={styles.mobile}/>
-      <Image src={photos.desk[imgIndex]}  alt={""} className={styles.desk}/>
+      <Image src={photos.mobile[imgIndex]} alt={""} className={styles.mobile} />
+      <Image src={photos.desk[imgIndex]}  alt={""} className={styles.desk} />
+      <div className={styles.indicators}>
+        <div className={`${imgIndex == 0 ? styles.active : styles.desativited}`} onClick={() => setImgIndex(0)}></div>
+        <div className={`${imgIndex == 1 ? styles.active : styles.desativited}`} onClick={() => setImgIndex(1)}></div>
+        <div className={`${imgIndex == 2 ? styles.active : styles.desativited}`} onClick={() => setImgIndex(2)}></div>
+      </div>
     </div>
   )
 }
