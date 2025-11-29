@@ -4,7 +4,7 @@ import Devider from "@/components/devider/devider";
 
 export default async function Home() {
 
-  const hortalica = await fetch(`${process.env.DOMAIN}/api/products?category=hortalicas&highlighted=true`)
+  const hortalica = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/products?category=hortalicas&highlighted=true`, { cache: 'no-store' })
     .then(data => data.json())
     .then(res => res.data as Array<{id: number, name: string, unitmeasure: string, price: number, imgurl: string}>)
 
