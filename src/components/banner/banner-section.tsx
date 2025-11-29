@@ -15,7 +15,6 @@ export default function BannerSection(
   { photos } : BannerSectionProps
 ) {
   const [imgIndex, setImgIndex] = useState(0)
-  const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => {

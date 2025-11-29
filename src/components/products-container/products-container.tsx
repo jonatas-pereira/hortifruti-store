@@ -10,7 +10,7 @@ export default function ProductsContainer({ category, products } : ProductContai
   const sliderRef = useRef<HTMLDivElement>(null);
   const [windowSize, setWindowSize] = useState(0);
 
-   useEffect(() => {
+  useEffect(() => {
     if (!sliderRef.current) return;
 
     const observer = new ResizeObserver((entries) => {
@@ -56,7 +56,7 @@ export default function ProductsContainer({ category, products } : ProductContai
               <img src={produto.img} alt="" />
               <div className={styles.produtoNome}>
                 <span>{produto.name}</span>
-                <span>R${produto.price}</span>
+                <span>R${produto.price.toFixed(2).toString().replace(".", ",")}</span>
               </div>
               <button className={styles.seeProduct}>Ver Produto</button>
             </Link>
