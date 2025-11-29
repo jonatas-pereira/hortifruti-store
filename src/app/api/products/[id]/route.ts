@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/db/supabase'
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(request: NextRequest, context: { params: { id: string } }) {
+  const { id } = context.params;
   console.log("Fetching product with ID:", id);
   const products = await supabase.from('products').select('*').eq('id', id).single()
   if (products.error) {
