@@ -3,25 +3,25 @@
 import styles from "./products-category.module.scss";
 import ProductContainerProps from "./types/product-container-props";
 import { useEffect, useRef, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaHeart } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
 
 export default function ProductsContainer({ category, products } : ProductContainerProps) {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [windowSize, setWindowSize] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null)
+  const [windowSize, setWindowSize] = useState(0)
 
   useEffect(() => {
-    if (!sliderRef.current) return;
+    if (!sliderRef.current) return
 
     const observer = new ResizeObserver((entries) => {
-      const el = entries[0].contentRect;
-      setWindowSize(el.width);
+      const el = entries[0].contentRect
+      setWindowSize(el.width)
     });
 
-    observer.observe(sliderRef.current);
+    observer.observe(sliderRef.current)
 
-    return () => observer.disconnect();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
 
   const scrollLeft = () => {  
@@ -51,15 +51,15 @@ export default function ProductsContainer({ category, products } : ProductContai
       </div>
       <div className={styles.slider} ref={sliderRef}>
         { 
-          products.map((produto) => (
-            <Link href={`/produto?id=${produto.id}`} className={styles.produtoElement} key={produto.id}>
-              <img src={produto.img} alt="" />
+          products.map((product) => (
+            <div className={styles.produtoElement} key={product.id}>
+              <img src={product.imgurl} alt={`imagem de ${product.name}`} />
               <div className={styles.produtoNome}>
-                <span>{produto.name}</span>
-                <span>R${produto.price.toFixed(2).toString().replace(".", ",")}</span>
+                <span>{product.name} - {product.unitmeasure}</span>
+                <span>R${product.price.toFixed(2).toString().replace(".", ",")}</span>
               </div>
               <button className={styles.seeProduct}>Ver Produto</button>
-            </Link>
+            </div>
           ))
         }
       </div>

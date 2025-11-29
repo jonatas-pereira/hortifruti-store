@@ -16,10 +16,6 @@
   a {
     display: none;
 
-    :hover {
-      color: red;
-    }
-
     @media (min-width: 768px) {
       display: block;
     }
@@ -100,32 +96,14 @@
   }
 }
 
-.favoritar {
-  position: absolute;
-  z-index: 20;
-  padding: 15px;
-  cursor: pointer;
-  top: 0;
-  right: 0;
-}
-
-.favoritar { 
-  svg {
-    color: white;
-  }
-
-  svg:hover {
-    color: red;
-  }
-}
-
 .produtoElement img {
   position: absolute;
   top: 0;
   padding: 5px;
-  width: 100%;
+  width: 70%;
   height: 50%;
   object-fit: cover;
+  overflow: visible;
 }
 
 .produtoNome {

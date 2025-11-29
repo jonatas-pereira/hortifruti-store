@@ -2,12 +2,11 @@
 
 import styles from "./banner-section.module.scss"
 import { useState, useEffect } from "react"
-import Image, { StaticImageData } from "next/image"
 
 interface BannerSectionProps {
   photos: {
-    mobile: StaticImageData[],
-    desk: StaticImageData[]
+    mobile: string[],
+    desk: string[]
   } 
 }
 
@@ -27,8 +26,8 @@ export default function BannerSection(
 
   return (
     <div className={styles.imgBox}>
-      <Image src={photos.mobile[imgIndex]} alt={""} className={styles.mobile} />
-      <Image src={photos.desk[imgIndex]}  alt={""} className={styles.desk} />
+      <img src={photos.mobile[imgIndex]} alt={""} className={styles.mobile} />
+      <img src={photos.desk[imgIndex]}  alt={""} className={styles.desk} />
       <div className={styles.indicators}>
         <div className={`${imgIndex == 0 ? styles.active : styles.desativited}`} onClick={() => setImgIndex(0)}></div>
         <div className={`${imgIndex == 1 ? styles.active : styles.desativited}`} onClick={() => setImgIndex(1)}></div>
