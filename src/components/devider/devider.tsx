@@ -1,6 +1,6 @@
 import styles from "./devider.module.scss"
 
-export default function Devider({ msg, drawrow } : { msg: string; drawrow?: boolean }) {
+export default function Devider({ msg, drawrow } : { msg?: string; drawrow?: boolean }) {
   return (
     <div className={styles.devider}>
       <div className={`${drawrow && styles.deviderElement}`}></div>
