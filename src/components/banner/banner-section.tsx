@@ -3,6 +3,14 @@
 import styles from "./banner-section.module.scss"
 import { useState, useEffect } from "react"
 
+import bannerMobile1 from "@/assets/bannerImg/mobileBanner/1.png"
+import bannerMobile2 from "@/assets/bannerImg/mobileBanner/2.png"
+import bannerMobile3 from "@/assets/bannerImg/mobileBanner/3.png"
+
+import bannerDesk1 from "@/assets/bannerImg/deskBanner/1.png"
+import bannerDesk2 from "@/assets/bannerImg/deskBanner/2.png"
+import bannerDesk3 from "@/assets/bannerImg/deskBanner/3.png"
+
 interface BannerSectionProps {
   photos: {
     mobile: string[],
@@ -10,9 +18,12 @@ interface BannerSectionProps {
   } 
 }
 
-export default function BannerSection(
-  { photos } : BannerSectionProps
-) {
+const photos = {
+  mobile: [bannerMobile1.src, bannerMobile2.src,  bannerMobile3.src],
+  desk: [bannerDesk1.src, bannerDesk2.src,  bannerDesk3.src]
+}
+
+export default function BannerSection() {
   const [imgIndex, setImgIndex] = useState(0)
 
   useEffect(() => {
