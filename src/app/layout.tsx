@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss"
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
-import Logo from "@/assets/logo.png"
+import Logo from "@/../public/assets/logo.png"
 
 export const metadata: Metadata = {
   title: "Hortifruti São Felipe",

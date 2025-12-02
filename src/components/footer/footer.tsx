@@ -1,7 +1,7 @@
 import styles from "./footer.module.scss"
 
 import Container from "../container/container"
-import Logo from "@/assets/logo.png"
+import Logo from "@/../public/assets/logo.png"
 import Image from "next/image"
 import { FaHeart } from "react-icons/fa"
 
