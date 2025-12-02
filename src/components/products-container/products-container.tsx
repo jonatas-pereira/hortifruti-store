@@ -49,6 +49,7 @@ export default function ProductsContainer({ category, products } : ProductContai
           <FaArrowRight />
         </button>
       </div>
+      <Link href={`/`} className={styles.allProducts}>Ver todos</Link>
       <div className={styles.slider} ref={sliderRef}>
         { 
           products.map((product) => (
