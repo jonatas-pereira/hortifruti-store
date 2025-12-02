@@ -13,7 +13,10 @@ export default async function Home() {
     .then(data => data.json())
     .then(res => res.data as Array<{id: number, name: string, unitmeasure: string, price: number, imgurl: string}>)
 
-
+  const frutas = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/products?category=frutas&highlighted=true`, { cache: 'no-store'})
+    .then(data => data.json())
+    .then(res => res.data)
+  
   return (
     <div>
       <Container>
@@ -22,6 +25,8 @@ export default async function Home() {
         <ProductsContainer category="hortalicas" products={hortalica}/>
         <Devider msg="Verduras"/>
         <ProductsContainer category="verduras" products={verduras}/>
+        <Devider msg="Frutas"/>
+        <ProductsContainer category="frutas" products={frutas}/>
       </Container>
     </div>
   );
