@@ -9,12 +9,19 @@ export default async function Home() {
     .then(data => data.json())
     .then(res => res.data as Array<{id: number, name: string, unitmeasure: string, price: number, imgurl: string}>)
 
+  const verduras = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/products?category=verduras&highlighted=true`, {cache: 'no-store'})
+    .then(data => data.json())
+    .then(res => res.data as Array<{id: number, name: string, unitmeasure: string, price: number, imgurl: string}>)
+
+
   return (
     <div>
       <Container>
         <BannerSection />
         <Devider msg="Hortaliças" /> 
         <ProductsContainer category="hortalicas" products={hortalica}/>
+        <Devider msg="Verduras"/>
+        <ProductsContainer category="verduras" products={verduras}/>
       </Container>
     </div>
   );
