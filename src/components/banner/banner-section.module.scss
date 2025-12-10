@@ -1,4 +1,4 @@
-.imgBox {
+.bannerContainer {
   margin-top: 10px;
   position: relative;
   display: flex;
@@ -7,14 +7,32 @@
   border-radius: 10px;
   overflow: hidden;
 
-  img {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-  }
-
   @media(min-width: 768px) {
     margin-top: 15px;
+  }
+}
+
+.bannerCard {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.imgEl {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+
+  &.enable {
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
   }
 }
 
@@ -43,15 +61,15 @@
     height: 10px;
     border-radius: 50%;
     cursor: pointer;
-  }
-}
 
-.desativited {
-  background-color: gray;
-  opacity: 0.5;
-}
+    &.desativited {
+      background-color: gray;
+      opacity: 0.5;
+    }
 
-.active {
-  background-color: rgb(36, 34, 34);
-  opacity: 1;
+    &.active {
+      background-color: rgb(36, 34, 34);
+      opacity: 1;
+    }
+  } 
 }
