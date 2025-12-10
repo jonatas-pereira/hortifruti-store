@@ -1,0 +1,53 @@
+.produtoElement {
+  position: relative;
+  height: 300px;
+  width: 200px;
+  margin-right: 5px;
+  margin-left: 5px;
+  background: #eee;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.produtoElement img {
+  position: absolute;
+  top: 0;
+  padding: 5px;
+  width: 70%;
+  height: 50%;
+  object-fit: cover;
+  overflow: visible;
+}
+
+.produtoNome {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  padding: 10px;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  :last-child {
+    font-weight: 700;
+  }
+}
+
+.seeProduct {
+  display: flex;
+  justify-content: center;
+  color: #eee;
+  width: 90%;
+  bottom: 10px;
+  padding: 10px;
+  background: #7ea010;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 30;
+  cursor: pointer;
+}

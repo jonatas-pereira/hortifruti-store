@@ -27,7 +27,7 @@ export default function ProductsContainer({ category, products } : ProductContai
   const scrollLeft = () => {  
     sliderRef.current?.scrollBy({
       left: -windowSize,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -41,7 +41,7 @@ export default function ProductsContainer({ category, products } : ProductContai
   return (
     <div className={styles.wrapper}>
       <div className={styles.btnContainer}>
-        <Link href={`/`}>Ver todos</Link>
+        <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/produtos?categoria=${category}`}>Ver todos</Link>
         <button className={styles.btn} onClick={scrollLeft}>
           <FaArrowLeft />
         </button>
@@ -59,7 +59,7 @@ export default function ProductsContainer({ category, products } : ProductContai
                 <span>{product.name} - {product.unitmeasure}</span>
                 <span>R${product.price.toFixed(2).toString().replace(".", ",")}</span>
               </div>
-              <button className={styles.seeProduct}>Ver Produto</button>
+              <Link href={`/produtos/${product.id}`} className={styles.seeProduct}>Ver Produto</Link>
             </div>
           ))
         }
