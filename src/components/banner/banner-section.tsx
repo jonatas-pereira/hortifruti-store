@@ -26,15 +26,8 @@ export default function BannerSection() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-        if(imgIndex == 0) {
-          setImgIndex(1)
-        }
-        else if(imgIndex == 1) {
-          setImgIndex(2)
-        }
-          else {
-            setImgIndex(0)
-          }
+      imgIndex < photos.mobile.length-1 || imgIndex < photos.desk.length-1 
+      ? setImgIndex(imgIndex+1) : setImgIndex(0)
       }, 10000)
       return () => clearTimeout(timer)
   }, [imgIndex])
